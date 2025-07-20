@@ -1,0 +1,75 @@
+---
+---
+<nav>
+	<div class="logo">Cloudsbay</div>
+	<div class="nav-links">
+		<a href="/" class="nav-button">Home</a>
+		<a href="/blogs" class="nav-button">Blogs</a>
+		<a href="/about" class="nav-button">About</a>
+	</div>
+</nav>
+
+<style>
+	:root {
+		--red: #F21905;
+		--text: #ffffff;
+	}
+
+	nav {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 1.25rem 2rem;
+		background-color: #000;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+		position: sticky;
+		top: 0;
+		z-index: 999;
+		opacity: 0.95;
+		/* Matching font */
+		font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
+	}
+
+	.logo {
+		font-size: 1.5rem;
+		font-weight: 700;
+		color: var(--red);
+		letter-spacing: -0.5px;
+	}
+
+	.nav-links {
+		display: flex;
+		gap: 2rem;
+	}
+
+	.nav-button {
+		text-decoration: none;
+		font-size: 1rem;
+		color: var(--text);
+		background: transparent;
+		border: none;
+		cursor: pointer;
+		font-weight: 500;
+		position: relative;
+		transition: color 0.2s ease;
+	}
+
+	.nav-button::after {
+		content: "";
+		position: absolute;
+		bottom: -4px;
+		left: 0;
+		width: 0%;
+		height: 2px;
+		background: var(--red);
+		transition: width 0.3s ease;
+	}
+
+	.nav-button:hover::after {
+		width: 100%;
+	}
+
+	.nav-button:hover {
+		color: var(--red);
+	}
+</style>

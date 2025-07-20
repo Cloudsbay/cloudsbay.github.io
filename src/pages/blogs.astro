@@ -1,0 +1,58 @@
+---
+import Hero from '../components/Hero.astro';
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+  <Hero title="Blogs" />
+  <section class="coming-soon">
+    <h2>Coming Soon</h2>
+    <p>We're working hard to bring you exciting blog content. Stay tuned for updates!</p>
+  </section>
+</Layout>
+
+<style>
+  :root {
+    --primary-color: #F21905;
+    --text: #ffffff;
+  }
+
+  .coming-soon {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 4rem;
+    font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
+    color: var(--text);
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    letter-spacing: -0.5px;
+  }
+
+  p {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 768px) {
+    .coming-soon {
+      padding: 1.5rem 2rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+  }
+</style>
