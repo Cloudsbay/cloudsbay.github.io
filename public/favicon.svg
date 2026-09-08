@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="cloudGrad" x1="12" y1="18" x2="52" y2="48" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#38BDF8" />
+      <stop offset="100%" stop-color="#0284C7" />
+    </linearGradient>
+    <linearGradient id="leafGrad" x1="32" y1="20" x2="48" y2="38" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#34D399" />
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+  </defs>
+  <!-- Cloud Body -->
+  <path d="M48 42C52.4183 42 56 38.4183 56 34C56 29.8398 52.8252 26.4237 48.7758 26.0427C47.4589 19.1678 41.4286 14 34.1429 14C28.2125 14 23.1118 17.4339 20.9701 22.4277C20.0152 22.148 19.0069 22 18 22C12.4772 22 8 26.4772 8 32C8 37.5228 12.4772 42 18 42H48Z" fill="url(#cloudGrad)" />
+  <!-- Sprout / Leaf emerging from cloud -->
+  <path d="M34 26C34 26 43 23 43 14C34 14 31 23 34 26Z" fill="url(#leafGrad)" />
+  <path d="M34 26C31 29 27 30 25 28C23 26 27 21 34 26Z" fill="#10B981" opacity="0.9"/>
+</svg>

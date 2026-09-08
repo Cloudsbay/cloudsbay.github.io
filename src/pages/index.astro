@@ -1,10 +1,17 @@
 ---
-import Hero from '../components/Hero.astro';
 import Layout from '../layouts/Layout.astro';
-import AboutCard from '../components/AboutCard.astro';
+import Hero from '../components/Hero.astro';
+import CuriositySection from '../components/CuriositySection.astro';
+import EarthRestoration from '../components/EarthRestoration.astro';
+import ContactSection from '../components/ContactSection.astro';
 ---
 
-<Layout>
-	<Hero title="Welcome to Cloudsbay" />
-	<AboutCard />
+<Layout
+  title="Cloudsbay — Scalable Solutions, Relentless Curiosity & Living Earth"
+  description="Cloudsbay builds sustainable and scalable solutions. Driven by curiosity, our vision is to bring nature and tech closer together, plant trees, and restore the Earth for all creatures."
+>
+  <Hero />
+  <CuriositySection />
+  <EarthRestoration />
+  <ContactSection />
 </Layout>

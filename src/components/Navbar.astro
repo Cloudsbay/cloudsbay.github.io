@@ -1,75 +1,203 @@
 ---
+// Navbar.astro - Pure minimalist Google Sans navigation floating in the cloud room
 ---
-<nav>
-	<div class="logo">Cloudsbay</div>
-	<div class="nav-links">
-		<a href="/" class="nav-button">Home</a>
-		<a href="/blogs" class="nav-button">Blogs</a>
-		<a href="/about" class="nav-button">About</a>
-	</div>
-</nav>
+
+<header class="navbar-wrapper">
+  <nav class="navbar" aria-label="Main Navigation">
+    <a href="/" class="brand" aria-label="Cloudsbay Homepage">
+      Cloudsbay
+    </a>
+
+    <div class="nav-links">
+      <a href="/#curiosity" class="nav-link">Curiosity</a>
+      <a href="/#earth" class="nav-link">Earth & Trees</a>
+      <a href="/about" class="nav-link">About</a>
+      <a href="/blogs" class="nav-link">Writing</a>
+      <a href="/#contact" class="nav-link">Contact</a>
+    </div>
+
+    <!-- Minimal Mobile Trigger -->
+    <button class="mobile-toggle" aria-label="Toggle navigation menu" id="menuToggle" aria-expanded="false">
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu Dropdown -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/#curiosity" class="mobile-link">Curiosity</a>
+    <a href="/#earth" class="mobile-link">Earth & Trees</a>
+    <a href="/about" class="mobile-link">About</a>
+    <a href="/blogs" class="mobile-link">Writing</a>
+    <a href="/#contact" class="mobile-link">Contact</a>
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById('menuToggle');
+  const menu = document.getElementById('mobileMenu');
+
+  if (toggle && menu) {
+    toggle.addEventListener('click', () => {
+      const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!isOpen));
+      menu.classList.toggle('active', !isOpen);
+      toggle.classList.toggle('open', !isOpen);
+    });
+
+    menu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        toggle.setAttribute('aria-expanded', 'false');
+        menu.classList.remove('active');
+        toggle.classList.remove('open');
+      });
+    });
+  }
+</script>
 
 <style>
-	:root {
-		--red: #F21905;
-		--text: #ffffff;
-	}
+  .navbar-wrapper {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 2.25rem 3rem 1.5rem;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    background: rgba(255, 255, 255, 0.45);
+    transition: background 0.3s ease;
+  }
 
-	nav {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		padding: 1.25rem 2rem;
-		background-color: #000;
-		border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-		position: sticky;
-		top: 0;
-		z-index: 999;
-		opacity: 0.95;
-		/* Matching font */
-		font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
-	}
+  .navbar {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-	.logo {
-		font-size: 1.5rem;
-		font-weight: 700;
-		color: var(--red);
-		letter-spacing: -0.5px;
-	}
+  .brand {
+    font-family: var(--font-sans);
+    font-size: 1.35rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    text-decoration: none;
+    letter-spacing: -0.02em;
+    transition: opacity 0.2s ease;
+  }
 
-	.nav-links {
-		display: flex;
-		gap: 2rem;
-	}
+  .brand:hover {
+    opacity: 0.7;
+  }
 
-	.nav-button {
-		text-decoration: none;
-		font-size: 1rem;
-		color: var(--text);
-		background: transparent;
-		border: none;
-		cursor: pointer;
-		font-weight: 500;
-		position: relative;
-		transition: color 0.2s ease;
-	}
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2.75rem;
+  }
 
-	.nav-button::after {
-		content: "";
-		position: absolute;
-		bottom: -4px;
-		left: 0;
-		width: 0%;
-		height: 2px;
-		background: var(--red);
-		transition: width 0.3s ease;
-	}
+  .nav-link {
+    font-family: var(--font-text);
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: var(--color-ink-muted);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+    transition: color 0.2s ease;
+    position: relative;
+    padding-bottom: 2px;
+  }
 
-	.nav-button:hover::after {
-		width: 100%;
-	}
+  .nav-link:hover {
+    color: var(--color-ink);
+  }
 
-	.nav-button:hover {
-		color: var(--red);
-	}
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--color-ink);
+    transition: width 0.25s ease;
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
+  /* Mobile Toggle */
+  .mobile-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    width: 32px;
+    height: 32px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .mobile-toggle .bar {
+    width: 22px;
+    height: 1.5px;
+    background: var(--color-ink);
+    transition: transform 0.2s ease;
+  }
+
+  .mobile-toggle.open .bar:nth-child(1) {
+    transform: translateY(3.75px) rotate(45deg);
+  }
+
+  .mobile-toggle.open .bar:nth-child(2) {
+    transform: translateY(-3.75px) rotate(-45deg);
+  }
+
+  .mobile-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(16px);
+    padding: 2rem 3rem 2.5rem;
+    flex-direction: column;
+    gap: 1.5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+  }
+
+  .mobile-menu.active {
+    display: flex;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .mobile-link {
+    font-family: var(--font-sans);
+    font-size: 1.15rem;
+    color: var(--color-ink);
+    text-decoration: none;
+  }
+
+  @media (max-width: 768px) {
+    .navbar-wrapper {
+      padding: 1.5rem 1.5rem 1rem;
+    }
+    .nav-links {
+      display: none;
+    }
+    .mobile-toggle {
+      display: flex;
+    }
+  }
 </style>
