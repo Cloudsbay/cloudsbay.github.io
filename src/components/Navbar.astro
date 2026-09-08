@@ -1,75 +1,216 @@
 ---
+// Navbar.astro - Floating glassmorphic navigation in the cloud studio
 ---
-<nav>
-	<div class="logo">Cloudsbay</div>
-	<div class="nav-links">
-		<a href="/" class="nav-button">Home</a>
-		<a href="/blogs" class="nav-button">Blogs</a>
-		<a href="/about" class="nav-button">About</a>
-	</div>
-</nav>
+
+<header class="navbar-wrapper">
+  <nav class="navbar-glass" aria-label="Main Navigation">
+    <a href="/" class="brand" aria-label="Cloudsbay Homepage">
+      Cloudsbay
+    </a>
+
+    <div class="nav-links">
+      <a href="/#curiosity" class="nav-link">Curiosity</a>
+      <a href="/#earth" class="nav-link">Earth & Trees</a>
+      <a href="/about" class="nav-link">About</a>
+      <a href="/blogs" class="nav-link">Writing</a>
+      <a href="/#contact" class="nav-link">Contact</a>
+    </div>
+
+    <!-- Minimal Mobile Trigger -->
+    <button class="mobile-toggle" aria-label="Toggle navigation menu" id="menuToggle" aria-expanded="false">
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu Dropdown -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/#curiosity" class="mobile-link">Curiosity</a>
+    <a href="/#earth" class="mobile-link">Earth & Trees</a>
+    <a href="/about" class="mobile-link">About</a>
+    <a href="/blogs" class="mobile-link">Writing</a>
+    <a href="/#contact" class="mobile-link">Contact</a>
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById('menuToggle');
+  const menu = document.getElementById('mobileMenu');
+
+  if (toggle && menu) {
+    toggle.addEventListener('click', () => {
+      const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!isOpen));
+      menu.classList.toggle('active', !isOpen);
+      toggle.classList.toggle('open', !isOpen);
+    });
+
+    menu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        toggle.setAttribute('aria-expanded', 'false');
+        menu.classList.remove('active');
+        toggle.classList.remove('open');
+      });
+    });
+  }
+</script>
 
 <style>
-	:root {
-		--red: #F21905;
-		--text: #ffffff;
-	}
+  .navbar-wrapper {
+    position: sticky;
+    top: 1.5rem;
+    width: 100%;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    padding: 0 1.5rem;
+  }
 
-	nav {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		padding: 1.25rem 2rem;
-		background-color: #000;
-		border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-		position: sticky;
-		top: 0;
-		z-index: 999;
-		opacity: 0.95;
-		/* Matching font */
-		font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
-	}
+  .navbar-glass {
+    width: 100%;
+    max-width: 1100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.85rem 2rem;
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
+    border: 1px solid rgba(255, 255, 255, 0.92);
+    border-radius: 999px;
+    box-shadow: 
+      0 12px 36px -10px rgba(0, 0, 0, 0.04),
+      0 0 0 1px rgba(255, 255, 255, 0.7) inset;
+    transition: all 0.3s ease;
+  }
 
-	.logo {
-		font-size: 1.5rem;
-		font-weight: 700;
-		color: var(--red);
-		letter-spacing: -0.5px;
-	}
+  .navbar-glass:hover {
+    box-shadow: 
+      0 16px 42px -10px rgba(0, 0, 0, 0.06),
+      0 0 0 1px #ffffff inset;
+  }
 
-	.nav-links {
-		display: flex;
-		gap: 2rem;
-	}
+  .brand {
+    font-family: var(--font-sans);
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    text-decoration: none;
+    letter-spacing: -0.02em;
+    transition: opacity 0.2s ease;
+  }
 
-	.nav-button {
-		text-decoration: none;
-		font-size: 1rem;
-		color: var(--text);
-		background: transparent;
-		border: none;
-		cursor: pointer;
-		font-weight: 500;
-		position: relative;
-		transition: color 0.2s ease;
-	}
+  .brand:hover {
+    opacity: 0.7;
+  }
 
-	.nav-button::after {
-		content: "";
-		position: absolute;
-		bottom: -4px;
-		left: 0;
-		width: 0%;
-		height: 2px;
-		background: var(--red);
-		transition: width 0.3s ease;
-	}
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+  }
 
-	.nav-button:hover::after {
-		width: 100%;
-	}
+  .nav-link {
+    font-family: var(--font-text);
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: var(--color-ink-muted);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+    transition: color 0.2s ease;
+    position: relative;
+    padding-bottom: 2px;
+  }
 
-	.nav-button:hover {
-		color: var(--red);
-	}
+  .nav-link:hover {
+    color: var(--color-ink);
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1.5px;
+    background: var(--color-ink);
+    transition: width 0.25s ease;
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
+  /* Mobile Toggle */
+  .mobile-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 32px;
+    height: 32px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .mobile-toggle .bar {
+    width: 20px;
+    height: 1.5px;
+    background: var(--color-ink);
+    transition: transform 0.2s ease;
+  }
+
+  .mobile-toggle.open .bar:nth-child(1) {
+    transform: translateY(3.25px) rotate(45deg);
+  }
+
+  .mobile-toggle.open .bar:nth-child(2) {
+    transform: translateY(-3.25px) rotate(-45deg);
+  }
+
+  .mobile-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 0.75rem);
+    left: 1.5rem;
+    right: 1.5rem;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(28px);
+    border: 1px solid rgba(255, 255, 255, 0.95);
+    border-radius: 24px;
+    box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.08);
+    padding: 1.75rem 2rem;
+    flex-direction: column;
+    gap: 1.25rem;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+  }
+
+  .mobile-menu.active {
+    display: flex;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .mobile-link {
+    font-family: var(--font-sans);
+    font-size: 1.15rem;
+    color: var(--color-ink);
+    text-decoration: none;
+  }
+
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+    }
+    .mobile-toggle {
+      display: flex;
+    }
+  }
 </style>

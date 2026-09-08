@@ -1,0 +1,250 @@
+---
+// ContactSection.astro - Glassmorphic dialogue section
+---
+
+<section id="contact" class="contact-room">
+  <div class="contact-glass-wrapper glass-card">
+    <div class="section-label">Dialogue</div>
+
+    <div class="contact-layout">
+      <div class="contact-message">
+        <h2 class="contact-heading">Let's talk.</h2>
+        <p class="contact-lead">
+          Curiosity is an open door. If you are facing a difficult problem that demands sustainable and scalable solutions, or if you share our dedication to planting trees and restoring the Earth — write to us.
+        </p>
+
+        <div class="contact-direct">
+          <span class="direct-label">Direct Line</span>
+          <a href="mailto:hello@cloudsbay.com" class="direct-email">hello@cloudsbay.com</a>
+        </div>
+      </div>
+
+      <div class="contact-form-area">
+        <form id="contactForm" class="clean-form">
+          <div class="field-row">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" required placeholder="Jane Doe" class="clean-input" />
+          </div>
+
+          <div class="field-row">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required placeholder="jane@example.com" class="clean-input" />
+          </div>
+
+          <div class="field-row">
+            <label for="message">What are you curious about?</label>
+            <textarea id="message" name="message" rows="4" required placeholder="Tell us about the challenge or idea..." class="clean-textarea"></textarea>
+          </div>
+
+          <button type="submit" class="clean-submit">
+            Send message
+          </button>
+        </form>
+
+        <div id="formSuccess" class="clean-success" style="display: none;">
+          <h3>Thank you.</h3>
+          <p>We received your note and will be in touch soon.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById('contactForm') as HTMLFormElement | null;
+  const success = document.getElementById('formSuccess');
+
+  if (form && success) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      form.style.display = 'none';
+      success.style.display = 'block';
+    });
+  }
+</script>
+
+<style>
+  .contact-room {
+    padding: 6rem 1.5rem 10rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+  }
+
+  .contact-glass-wrapper {
+    padding: 5rem 4.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+  }
+
+  .section-label {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--color-ink-subtle);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .contact-message {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .contact-heading {
+    font-family: var(--font-sans);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+    color: var(--color-ink);
+    margin: 0;
+  }
+
+  .contact-lead {
+    font-family: var(--font-text);
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: var(--color-ink-muted);
+    margin: 0;
+  }
+
+  .contact-direct {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+  .direct-label {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--color-ink-subtle);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .direct-email {
+    font-family: var(--font-sans);
+    font-size: 1.35rem;
+    color: var(--color-ink);
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+  }
+
+  .direct-email:hover {
+    opacity: 0.6;
+  }
+
+  /* Clean Minimal Form - Underline Inputs */
+  .clean-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .field-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  label {
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-ink-muted);
+    letter-spacing: -0.01em;
+  }
+
+  .clean-input,
+  .clean-textarea {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.18);
+    padding: 0.75rem 0;
+    font-family: var(--font-text);
+    font-size: 1.05rem;
+    color: var(--color-ink);
+    border-radius: 0;
+    transition: border-color 0.2s ease;
+  }
+
+  .clean-input:focus,
+  .clean-textarea:focus {
+    outline: none;
+    border-bottom-color: var(--color-ink);
+  }
+
+  .clean-textarea {
+    resize: vertical;
+  }
+
+  .clean-submit {
+    align-self: flex-start;
+    background: var(--color-ink);
+    color: var(--color-white);
+    border: none;
+    padding: 0.95rem 2.25rem;
+    font-family: var(--font-sans);
+    font-size: 0.975rem;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 999px;
+    margin-top: 0.75rem;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+
+  .clean-submit:hover {
+    opacity: 0.85;
+    transform: translateY(-1px);
+  }
+
+  .clean-success {
+    padding: 2rem 0;
+  }
+
+  .clean-success h3 {
+    font-family: var(--font-sans);
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    margin-bottom: 0.5rem;
+  }
+
+  .clean-success p {
+    font-family: var(--font-text);
+    font-size: 1.1rem;
+    color: var(--color-ink-muted);
+  }
+
+  @media (max-width: 860px) {
+    .contact-room {
+      padding: 4rem 1rem 6rem;
+    }
+
+    .contact-glass-wrapper {
+      padding: 3rem 2rem;
+      border-radius: 24px;
+    }
+
+    .contact-layout {
+      grid-template-columns: 1fr;
+      gap: 3.5rem;
+    }
+  }
+</style>

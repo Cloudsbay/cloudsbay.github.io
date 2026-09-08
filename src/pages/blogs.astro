@@ -1,58 +1,292 @@
 ---
-import Hero from '../components/Hero.astro';
 import Layout from '../layouts/Layout.astro';
+
+const essays = [
+  {
+    title: "Curiosity is the Clue: How Inquiry Unlocks Systemic Solutions",
+    topic: "Philosophy",
+    date: "September 2026",
+    excerpt: "When complex systems break, standard diagnostics often treat the loudest symptom while ignoring the root cause. A meditation on why genuine curiosity is the only reliable compass for sustainable engineering."
+  },
+  {
+    title: "Planting a Forest with Telemetry: Bringing Nature and Tech Closer",
+    topic: "Ecology & Technology",
+    date: "August 2026",
+    excerpt: "Exploring how aerial robotics, soil moisture sensing, and decentralized intelligence can restore the great planetary canopies and return the Earth to a thriving sanctuary for all living creatures."
+  },
+  {
+    title: "Plain and Simple: The Discipline of Architectural Restraint",
+    topic: "Architecture",
+    date: "July 2026",
+    excerpt: "Modern software is constantly burdened by unnecessary abstractions and performative complexity. How we design systems with zero bloat, low energy consumption, and decades of durability."
+  },
+  {
+    title: "A Home for All Residing Creatures: Reconnecting Fragmented Wildlife Corridors",
+    topic: "Planetary Restoration",
+    date: "June 2026",
+    excerpt: "Trees are more than carbon offsets — they are the living architecture of the Earth. An inquiry into mapping and re-establishing safe, unbroken migratory corridors for animals."
+  }
+];
 ---
 
-<Layout>
-  <Hero title="Blogs" />
-  <section class="coming-soon">
-    <h2>Coming Soon</h2>
-    <p>We're working hard to bring you exciting blog content. Stay tuned for updates!</p>
-  </section>
+<Layout
+  title="Writing — Cloudsbay"
+  description="Dispatches, essays, and reflections from Cloudsbay on curiosity, scalable systems, and restoring the living Earth."
+>
+  <div class="writing-room">
+    <header class="writing-hero glass-card">
+      <span class="room-label">Writing & Research</span>
+      <h1 class="writing-headline">
+        Thoughts on curiosity, scalable engineering, and the living Earth.
+      </h1>
+    </header>
+
+    <div class="essays-wrapper glass-card">
+      <div class="essays-list">
+        {essays.map((essay, idx) => (
+          <article class="essay-item">
+            <div class="essay-meta">
+              <span class="essay-num">0{idx + 1}</span>
+              <span class="essay-topic">{essay.topic}</span>
+              <span class="essay-date">{essay.date}</span>
+            </div>
+
+            <div class="essay-content">
+              <h2 class="essay-title">
+                <a href="#read" class="essay-link">{essay.title}</a>
+              </h2>
+              <p class="essay-excerpt">{essay.excerpt}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div class="newsletter-row">
+        <div class="newsletter-text">
+          <h3>Stay connected</h3>
+          <p>Occasional letters on our tree planting milestones and curiosity-driven research.</p>
+        </div>
+
+        <form class="simple-subscribe" onsubmit="event.preventDefault(); alert('Thank you.');">
+          <input type="email" placeholder="Email address" required class="sub-input" />
+          <button type="submit" class="sub-btn">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </div>
 </Layout>
 
 <style>
-  :root {
-    --primary-color: #F21905;
-    --text: #ffffff;
-  }
-
-  .coming-soon {
+  .writing-room {
+    padding: 3rem 1.5rem 8rem;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 2rem 4rem;
-    font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
-    color: var(--text);
-    text-align: center;
+    width: 100%;
+    position: relative;
   }
 
-  h2 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-    letter-spacing: -0.5px;
+  .writing-hero {
+    padding: 5rem 4.5rem;
+    margin-bottom: 3.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
   }
 
-  p {
-    font-size: 1.125rem;
-    line-height: 1.6;
-    color: rgba(255, 255, 255, 0.9);
-    max-width: 600px;
-    margin: 0 auto;
+  .room-label {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--color-ink-subtle);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
   }
 
-  @media (max-width: 768px) {
-    .coming-soon {
-      padding: 1.5rem 2rem;
+  .writing-headline {
+    font-family: var(--font-sans);
+    font-size: clamp(2.25rem, 5vw, 4rem);
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: -0.035em;
+    color: var(--color-ink);
+  }
+
+  .essays-wrapper {
+    padding: 4.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+  }
+
+  .essays-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .essay-item {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 4rem;
+    padding: 3.5rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    align-items: start;
+  }
+
+  .essay-item:first-child {
+    padding-top: 0;
+  }
+
+  .essay-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .essay-num {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--color-ink-subtle);
+    letter-spacing: 0.05em;
+  }
+
+  .essay-topic {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-ink);
+  }
+
+  .essay-date {
+    font-family: var(--font-text);
+    font-size: 0.85rem;
+    color: var(--color-ink-subtle);
+  }
+
+  .essay-content {
+    max-width: 760px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .essay-title {
+    font-family: var(--font-sans);
+    font-size: clamp(1.5rem, 2.5vw, 2.1rem);
+    font-weight: 500;
+    line-height: 1.25;
+    letter-spacing: -0.025em;
+    margin: 0;
+  }
+
+  .essay-link {
+    color: var(--color-ink);
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+  }
+
+  .essay-link:hover {
+    opacity: 0.65;
+  }
+
+  .essay-excerpt {
+    font-family: var(--font-text);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--color-ink-muted);
+    margin: 0;
+  }
+
+  /* Minimalist Subscribe Row */
+  .newsletter-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4rem;
+    padding-top: 2rem;
+  }
+
+  .newsletter-text h3 {
+    font-family: var(--font-sans);
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5rem;
+  }
+
+  .newsletter-text p {
+    font-family: var(--font-text);
+    font-size: 1rem;
+    color: var(--color-ink-muted);
+  }
+
+  .simple-subscribe {
+    display: flex;
+    gap: 1.25rem;
+    min-width: 360px;
+  }
+
+  .sub-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 0.75rem 0;
+    font-family: var(--font-text);
+    font-size: 1rem;
+    color: var(--color-ink);
+    border-radius: 0;
+    transition: border-color 0.2s ease;
+  }
+
+  .sub-input:focus {
+    outline: none;
+    border-bottom-color: var(--color-ink);
+  }
+
+  .sub-btn {
+    background: var(--color-ink);
+    color: var(--color-white);
+    border: none;
+    padding: 0.75rem 1.75rem;
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    font-weight: 500;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+  }
+
+  .sub-btn:hover {
+    opacity: 0.85;
+  }
+
+  @media (max-width: 860px) {
+    .writing-room {
+      padding: 2rem 1rem 6rem;
     }
 
-    h2 {
-      font-size: 2rem;
+    .writing-hero,
+    .essays-wrapper {
+      padding: 3rem 2rem;
+      border-radius: 24px;
     }
 
-    p {
-      font-size: 1rem;
+    .essay-item {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+      padding: 2.5rem 0;
+    }
+
+    .newsletter-row {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 2rem;
+    }
+
+    .simple-subscribe {
+      min-width: 100%;
     }
   }
 </style>

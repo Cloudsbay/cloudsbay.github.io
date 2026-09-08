@@ -1,8 +1,226 @@
 ---
-import Hero from '../components/Hero.astro';
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout>
-	<Hero title="About us" />
+<Layout
+  title="About — Cloudsbay"
+  description="We solve problems by building sustainable and scalable solutions. Curiosity is our compass, and our vision is to bring nature and technology together to plant trees and restore the living Earth."
+>
+  <div class="about-room">
+    <header class="about-hero glass-card">
+      <span class="room-label">About Cloudsbay</span>
+      <h1 class="about-headline">
+        Curiosity is the clue to derive solutions to a problem and we are extremely curious.
+      </h1>
+    </header>
+
+    <div class="about-narrative">
+      <section class="narrative-chapter glass-card">
+        <div class="chapter-meta">
+          <span class="chapter-num">01</span>
+          <span class="chapter-name">The Studio</span>
+        </div>
+        <div class="chapter-body">
+          <h2>Why Cloudsbay?</h2>
+          <p>
+            Think of a white canvas. A studio that is completely open and white. And then, clouds gently wander into that room. They bring lightness, mist, and calm without demanding attention or imposing unnecessary structure.
+          </p>
+          <p>
+            We named ourselves Cloudsbay because we believe great solutions should feel just like that: plain, simple, and unburdened. When engineers become infatuated with complexity, systems become fragile and heavy. We strip away the noise until all that remains is clarity and purpose.
+          </p>
+        </div>
+      </section>
+
+      <section class="narrative-chapter glass-card">
+        <div class="chapter-meta">
+          <span class="chapter-num">02</span>
+          <span class="chapter-name">The Compass</span>
+        </div>
+        <div class="chapter-body">
+          <h2>Curiosity Over Assumptions</h2>
+          <p>
+            When a problem feels intractable, people usually resort to standard recipes or superficial band-aids. But assumptions are the enemy of true innovation.
+          </p>
+          <p>
+            We are relentlessly curious. We take the time to sit with a challenge, trace every tributary to its source, and question why things are designed the way they are. That patience is where sustainable and scalable solutions are born.
+          </p>
+        </div>
+      </section>
+
+      <section class="narrative-chapter glass-card">
+        <div class="chapter-meta">
+          <span class="chapter-num">03</span>
+          <span class="chapter-name">The Vision</span>
+        </div>
+        <div class="chapter-body">
+          <h2>Bringing Nature & Tech Closer</h2>
+          <p class="featured-quote">
+            "Someday we are going to plant a lot of trees with the help of technology and make sure to plant enough that the earth falls back to the state it was, the state of being an home to humans, animals and all the creatures that have resided on it."
+          </p>
+          <p>
+            Our ultimate dream is not digital escapism. It is planetary healing. We want to harness telemetry, autonomous aerial systems, and scalable computational models to rewild degraded landscapes.
+          </p>
+          <p>
+            Our vision is to bring nature and tech closer to each other — building a living world where every creature that has ever called this Earth home has a safe, thriving sanctuary.
+          </p>
+        </div>
+      </section>
+
+      <section class="narrative-chapter glass-card">
+        <div class="chapter-meta">
+          <span class="chapter-num">04</span>
+          <span class="chapter-name">Dialogue</span>
+        </div>
+        <div class="chapter-body">
+          <h2>Work with Us</h2>
+          <p>
+            If you have a complex problem that needs curious minds, or if you share our commitment to planting trees and restoring the Earth, please write to us.
+          </p>
+          <div class="contact-action">
+            <a href="mailto:hello@cloudsbay.com" class="direct-link">hello@cloudsbay.com</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
 </Layout>
+
+<style>
+  .about-room {
+    padding: 3rem 1.5rem 8rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+  }
+
+  .about-hero {
+    padding: 5rem 4.5rem;
+    margin-bottom: 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .room-label {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--color-ink-subtle);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .about-headline {
+    font-family: var(--font-sans);
+    font-size: clamp(2.25rem, 5vw, 4rem);
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: -0.035em;
+    color: var(--color-ink);
+  }
+
+  .about-narrative {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .narrative-chapter {
+    padding: 4.5rem;
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .chapter-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .chapter-num {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--color-ink-subtle);
+    letter-spacing: 0.05em;
+  }
+
+  .chapter-name {
+    font-family: var(--font-sans);
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--color-ink);
+  }
+
+  .chapter-body {
+    max-width: 720px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .chapter-body h2 {
+    font-family: var(--font-sans);
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    letter-spacing: -0.025em;
+    margin: 0;
+  }
+
+  .chapter-body p {
+    font-family: var(--font-text);
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: var(--color-ink-muted);
+    margin: 0;
+  }
+
+  .featured-quote {
+    font-family: var(--font-sans) !important;
+    font-size: 1.45rem !important;
+    line-height: 1.5 !important;
+    color: var(--color-ink) !important;
+    padding-left: 1.75rem;
+    border-left: 2px solid var(--color-ink);
+    margin: 1rem 0 !important;
+  }
+
+  .contact-action {
+    margin-top: 1rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+  }
+
+  .direct-link {
+    font-family: var(--font-sans);
+    font-size: 1.4rem;
+    color: var(--color-ink);
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+  }
+
+  .direct-link:hover {
+    opacity: 0.6;
+  }
+
+  @media (max-width: 860px) {
+    .about-room {
+      padding: 2rem 1rem 6rem;
+    }
+
+    .about-hero,
+    .narrative-chapter {
+      padding: 3rem 2rem;
+      border-radius: 24px;
+    }
+
+    .narrative-chapter {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
+</style>

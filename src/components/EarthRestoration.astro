@@ -1,0 +1,189 @@
+---
+// EarthRestoration.astro - Glassmorphic Earth restoration vision
+---
+
+<section id="earth" class="earth-room">
+  <div class="earth-glass-wrapper glass-card">
+    <div class="section-label">Our Vision</div>
+
+    <h2 class="earth-vision-quote">
+      Someday we are going to plant a lot of trees with the help of technology and make sure to plant enough that the earth falls back to the state it was, the state of being an home to humans, animals and all the creatures that have resided on it.
+    </h2>
+
+    <div class="sub-statement">
+      Our vision is to bring nature and tech closer to each others.
+    </div>
+
+    <div class="earth-story-columns">
+      <div class="story-column">
+        <h3>Rebalancing the Living Earth</h3>
+        <p>
+          Technology was never meant to separate us from the living world. We see code, robotics, and sensors not as instruments of extraction, but as quiet allies of biology.
+        </p>
+        <p>
+          By bringing nature and technology into harmony, we can deploy autonomous telemetry, understand native soil microbiomes, and plant millions of biodiverse trees where they are needed most.
+        </p>
+      </div>
+
+      <div class="story-column">
+        <h3>A Sanctuary for Every Creature</h3>
+        <p>
+          A forest is not merely timber or carbon statistics. It is the sacred habitat of songbirds, mammals, insects, freshwater streams, and human communities living in quiet balance.
+        </p>
+        <p>
+          Every initiative we architect is guided by one compass: ensuring that this planet returns to its rightful state as a safe, thriving home for every living creature that has ever resided on it.
+        </p>
+      </div>
+    </div>
+
+    <div class="milestones-row">
+      <div class="milestone-block">
+        <span class="milestone-num">Native Canopy</span>
+        <p class="milestone-text">Restoring continuous multi-layered forest corridors across fragmented landscapes.</p>
+      </div>
+      <div class="milestone-block">
+        <span class="milestone-num">Autonomous Care</span>
+        <p class="milestone-text">Sensor networks and aerial dispersal ensuring saplings grow into old-growth ecosystems.</p>
+      </div>
+      <div class="milestone-block">
+        <span class="milestone-num">Shared Balance</span>
+        <p class="milestone-text">Rebuilding the water table, climate cycles, and sanctuary for all living species.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .earth-room {
+    padding: 6rem 1.5rem 8rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+  }
+
+  .earth-glass-wrapper {
+    padding: 5rem 4.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+  }
+
+  .section-label {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--color-ink-subtle);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .earth-vision-quote {
+    font-family: var(--font-sans);
+    font-size: clamp(2rem, 4.5vw, 3.75rem);
+    font-weight: 400;
+    line-height: 1.16;
+    letter-spacing: -0.035em;
+    color: var(--color-ink);
+    max-width: 1050px;
+    margin: 0;
+  }
+
+  .sub-statement {
+    font-family: var(--font-sans);
+    font-size: clamp(1.35rem, 2.5vw, 2rem);
+    font-weight: 400;
+    line-height: 1.35;
+    color: var(--color-ink-muted);
+    letter-spacing: -0.02em;
+    max-width: 850px;
+    padding-left: 1.75rem;
+    border-left: 2px solid var(--color-ink-subtle);
+  }
+
+  .earth-story-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4.5rem;
+    max-width: 1000px;
+    margin-top: 0.5rem;
+  }
+
+  .story-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .story-column h3 {
+    font-family: var(--font-sans);
+    font-size: 1.35rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    letter-spacing: -0.02em;
+    margin: 0;
+  }
+
+  .story-column p {
+    font-family: var(--font-text);
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: var(--color-ink-muted);
+    margin: 0;
+  }
+
+  .milestones-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3.5rem;
+    padding-top: 3.5rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+  }
+
+  .milestone-block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .milestone-num {
+    font-family: var(--font-sans);
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    letter-spacing: -0.01em;
+  }
+
+  .milestone-text {
+    font-family: var(--font-text);
+    font-size: 0.975rem;
+    line-height: 1.7;
+    color: var(--color-ink-muted);
+    margin: 0;
+  }
+
+  @media (max-width: 860px) {
+    .earth-room {
+      padding: 4rem 1rem 6rem;
+    }
+
+    .earth-glass-wrapper {
+      padding: 3rem 2rem;
+      border-radius: 24px;
+    }
+
+    .earth-story-columns {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+
+    .milestones-row {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .sub-statement {
+      padding-left: 1rem;
+    }
+  }
+</style>
