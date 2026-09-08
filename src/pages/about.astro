@@ -7,7 +7,7 @@ import Layout from '../layouts/Layout.astro';
   description="We solve problems by building sustainable and scalable solutions. Curiosity is our compass, and our vision is to bring nature and technology together to plant trees and restore the living Earth."
 >
   <div class="about-room">
-    <header class="about-hero">
+    <header class="about-hero glass-card">
       <span class="room-label">About Cloudsbay</span>
       <h1 class="about-headline">
         Curiosity is the clue to derive solutions to a problem and we are extremely curious.
@@ -15,7 +15,7 @@ import Layout from '../layouts/Layout.astro';
     </header>
 
     <div class="about-narrative">
-      <section class="narrative-chapter">
+      <section class="narrative-chapter glass-card">
         <div class="chapter-meta">
           <span class="chapter-num">01</span>
           <span class="chapter-name">The Studio</span>
@@ -31,7 +31,7 @@ import Layout from '../layouts/Layout.astro';
         </div>
       </section>
 
-      <section class="narrative-chapter">
+      <section class="narrative-chapter glass-card">
         <div class="chapter-meta">
           <span class="chapter-num">02</span>
           <span class="chapter-name">The Compass</span>
@@ -47,7 +47,7 @@ import Layout from '../layouts/Layout.astro';
         </div>
       </section>
 
-      <section class="narrative-chapter">
+      <section class="narrative-chapter glass-card">
         <div class="chapter-meta">
           <span class="chapter-num">03</span>
           <span class="chapter-name">The Vision</span>
@@ -66,7 +66,7 @@ import Layout from '../layouts/Layout.astro';
         </div>
       </section>
 
-      <section class="narrative-chapter">
+      <section class="narrative-chapter glass-card">
         <div class="chapter-meta">
           <span class="chapter-num">04</span>
           <span class="chapter-name">Dialogue</span>
@@ -87,7 +87,7 @@ import Layout from '../layouts/Layout.astro';
 
 <style>
   .about-room {
-    padding: 6rem 3rem 10rem;
+    padding: 3rem 1.5rem 8rem;
     max-width: 1200px;
     margin: 0 auto;
     width: 100%;
@@ -95,8 +95,8 @@ import Layout from '../layouts/Layout.astro';
   }
 
   .about-hero {
-    max-width: 1000px;
-    margin-bottom: 8rem;
+    padding: 5rem 4.5rem;
+    margin-bottom: 4rem;
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -104,7 +104,7 @@ import Layout from '../layouts/Layout.astro';
 
   .room-label {
     font-family: var(--font-sans);
-    font-size: 0.875rem;
+    font-size: 0.85rem;
     font-weight: 500;
     color: var(--color-ink-subtle);
     letter-spacing: 0.08em;
@@ -113,9 +113,9 @@ import Layout from '../layouts/Layout.astro';
 
   .about-headline {
     font-family: var(--font-sans);
-    font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+    font-size: clamp(2.25rem, 5vw, 4rem);
     font-weight: 400;
-    line-height: 1.12;
+    line-height: 1.15;
     letter-spacing: -0.035em;
     color: var(--color-ink);
   }
@@ -123,14 +123,13 @@ import Layout from '../layouts/Layout.astro';
   .about-narrative {
     display: flex;
     flex-direction: column;
-    gap: 7rem;
-    border-top: 1px solid rgba(0, 0, 0, 0.08);
-    padding-top: 6rem;
+    gap: 3rem;
   }
 
   .narrative-chapter {
+    padding: 4.5rem;
     display: grid;
-    grid-template-columns: 260px 1fr;
+    grid-template-columns: 240px 1fr;
     gap: 4rem;
     align-items: start;
   }
@@ -139,8 +138,6 @@ import Layout from '../layouts/Layout.astro';
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    position: sticky;
-    top: 6rem;
   }
 
   .chapter-num {
@@ -162,12 +159,12 @@ import Layout from '../layouts/Layout.astro';
     max-width: 720px;
     display: flex;
     flex-direction: column;
-    gap: 1.75rem;
+    gap: 1.5rem;
   }
 
   .chapter-body h2 {
     font-family: var(--font-sans);
-    font-size: 2.25rem;
+    font-size: 2rem;
     font-weight: 500;
     color: var(--color-ink);
     letter-spacing: -0.025em;
@@ -176,15 +173,15 @@ import Layout from '../layouts/Layout.astro';
 
   .chapter-body p {
     font-family: var(--font-text);
-    font-size: 1.2rem;
-    line-height: 1.85;
+    font-size: 1.15rem;
+    line-height: 1.8;
     color: var(--color-ink-muted);
     margin: 0;
   }
 
   .featured-quote {
     font-family: var(--font-sans) !important;
-    font-size: 1.5rem !important;
+    font-size: 1.45rem !important;
     line-height: 1.5 !important;
     color: var(--color-ink) !important;
     padding-left: 1.75rem;
@@ -194,13 +191,13 @@ import Layout from '../layouts/Layout.astro';
 
   .contact-action {
     margin-top: 1rem;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
   }
 
   .direct-link {
     font-family: var(--font-sans);
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     color: var(--color-ink);
     text-decoration: none;
     transition: opacity 0.2s ease;
@@ -212,28 +209,18 @@ import Layout from '../layouts/Layout.astro';
 
   @media (max-width: 860px) {
     .about-room {
-      padding: 4rem 1.5rem 6rem;
+      padding: 2rem 1rem 6rem;
     }
 
-    .about-hero {
-      margin-bottom: 4rem;
-    }
-
-    .about-narrative {
-      gap: 5rem;
-      padding-top: 4rem;
+    .about-hero,
+    .narrative-chapter {
+      padding: 3rem 2rem;
+      border-radius: 24px;
     }
 
     .narrative-chapter {
       grid-template-columns: 1fr;
       gap: 1.5rem;
-    }
-
-    .chapter-meta {
-      position: static;
-      flex-direction: row;
-      gap: 1rem;
-      align-items: center;
     }
   }
 </style>

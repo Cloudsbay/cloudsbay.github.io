@@ -1,7 +1,7 @@
 ---
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
-import CloudRoom from '../components/CloudRoom.astro';
+import CloudStudio from '../components/CloudStudio.astro';
 
 interface Props {
   title?: string;
@@ -34,10 +34,10 @@ const {
     />
   </head>
   <body>
-    <!-- The Literal Cloud & Studio Fog Environment -->
-    <CloudRoom />
+    <!-- 3D Moving Clouds in White Studio -->
+    <CloudStudio />
 
-    <!-- Text and Structure floating in the cloud room -->
+    <!-- Glassmorphic Content Layer -->
     <div class="content-wrapper">
       <Navbar />
       <main id="main-content">
@@ -58,7 +58,10 @@ const {
     --color-ink-subtle: #9ca3af;
     --color-white: #ffffff;
 
-    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --glass-bg: rgba(255, 255, 255, 0.65);
+    --glass-border: rgba(255, 255, 255, 0.88);
+    --glass-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(255, 255, 255, 0.8) inset;
+    --glass-radius: 32px;
   }
 
   *, *::before, *::after {
@@ -69,7 +72,7 @@ const {
 
   html {
     scroll-behavior: smooth;
-    background-color: #ffffff;
+    background-color: #f7f9fa;
     color: var(--color-ink);
   }
 
@@ -78,14 +81,14 @@ const {
     font-size: 1.125rem;
     line-height: 1.7;
     color: var(--color-ink);
-    background-color: #ffffff;
+    background-color: transparent;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
     min-height: 100vh;
   }
 
-  /* Content wrapper sits between background clouds (z:1) and foreground mist (z:20) */
+  /* Content wrapper sits at z-index: 10 between background clouds and foreground passing clouds */
   .content-wrapper {
     position: relative;
     z-index: 10;
@@ -100,6 +103,21 @@ const {
     width: 100%;
   }
 
+  /* Global Glassmorphic Container Class */
+  .glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--glass-radius);
+    box-shadow: var(--glass-shadow);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+  }
+
+  .glass-card:hover {
+    box-shadow: 0 28px 60px -12px rgba(0, 0, 0, 0.08), 0 0 0 1px #ffffff inset;
+  }
+
   /* Accessible focus rings */
   a:focus-visible,
   button:focus-visible {
@@ -107,7 +125,6 @@ const {
     outline-offset: 4px;
   }
 
-  /* Selection */
   ::selection {
     background: rgba(200, 220, 240, 0.5);
     color: var(--color-ink);

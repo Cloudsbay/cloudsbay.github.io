@@ -1,38 +1,44 @@
 ---
-// Hero.astro - Minimalist pure typography in the white cloud room
+// Hero.astro - Glassmorphic focal point in the white cloud studio
 ---
 
 <section class="hero-room">
-  <div class="hero-inner">
+  <div class="hero-glass-card glass-card">
     <span class="hero-eyebrow">Cloudsbay</span>
     
     <h1 class="hero-headline">
       We like to solve problems building sustainable and scalable solutions.
     </h1>
 
-    <p class="hero-scroll-hint">
+    <p class="hero-subtext">
+      Curiosity is the clue to derive solutions to a problem and we are extremely curious.
+    </p>
+
+    <div class="hero-scroll-hint">
       <span class="hint-line"></span>
       <span class="hint-text">Scroll through the clouds</span>
-    </p>
+    </div>
   </div>
 </section>
 
 <style>
   .hero-room {
-    min-height: 85vh;
+    min-height: 88vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
-    padding: 6rem 3rem 8rem;
+    align-items: center;
+    padding: 3rem 1.5rem 6rem;
     max-width: 1200px;
     margin: 0 auto;
     width: 100%;
     position: relative;
   }
 
-  .hero-inner {
-    max-width: 920px;
+  .hero-glass-card {
+    width: 100%;
+    max-width: 960px;
+    padding: 5rem 4.5rem;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -44,18 +50,27 @@
     font-weight: 500;
     color: var(--color-ink-muted);
     letter-spacing: -0.01em;
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
     display: block;
   }
 
   .hero-headline {
     font-family: var(--font-sans);
-    font-size: clamp(2.75rem, 6.5vw, 5.25rem);
+    font-size: clamp(2.5rem, 5.5vw, 4.5rem);
     font-weight: 400;
-    line-height: 1.1;
-    letter-spacing: -0.04em;
+    line-height: 1.12;
+    letter-spacing: -0.035em;
     color: var(--color-ink);
-    margin: 0 0 4.5rem;
+    margin: 0 0 2rem;
+  }
+
+  .hero-subtext {
+    font-family: var(--font-text);
+    font-size: clamp(1.15rem, 2vw, 1.35rem);
+    line-height: 1.65;
+    color: var(--color-ink-muted);
+    max-width: 760px;
+    margin: 0 0 3.5rem;
   }
 
   .hero-scroll-hint {
@@ -63,30 +78,35 @@
     align-items: center;
     gap: 1.25rem;
     font-family: var(--font-text);
-    font-size: 0.875rem;
+    font-size: 0.85rem;
     color: var(--color-ink-subtle);
-    letter-spacing: 0.04em;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
   }
 
   .hint-line {
-    width: 48px;
+    width: 42px;
     height: 1px;
     background: var(--color-ink-subtle);
   }
 
   @media (max-width: 768px) {
     .hero-room {
-      padding: 4rem 1.5rem 6rem;
+      padding: 2rem 1rem 4rem;
       min-height: 75vh;
     }
 
-    .hero-eyebrow {
-      margin-bottom: 1.75rem;
+    .hero-glass-card {
+      padding: 3rem 2rem;
+      border-radius: 24px;
     }
 
     .hero-headline {
-      margin-bottom: 3rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-subtext {
+      margin-bottom: 2.5rem;
     }
   }
 </style>

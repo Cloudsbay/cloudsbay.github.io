@@ -1,0 +1,754 @@
+---
+// CloudStudio.astro - Literal 3D volumetric moving clouds and rustling living forest
+---
+
+<div class="studio-viewport" id="cloudStudio" aria-hidden="true">
+  <!-- Seamless White Infinity Studio Background -->
+  <div class="studio-floor-wall"></div>
+
+  <!-- 3D Cloud Stage -->
+  <div class="cloud-stage" id="cloudStage">
+    
+    <!-- Cloud 1: Massive Central Cumulus (Hero) -->
+    <div class="cloud-actor cloud-center" data-depth="0.35">
+      <img src="/cloud-3.webp" alt="" class="cloud-img" loading="eager" />
+      <div class="cloud-floor-shadow shadow-large"></div>
+    </div>
+
+    <!-- Cloud 2: Upper Left High Cloud -->
+    <div class="cloud-actor cloud-top-left" data-depth="0.2">
+      <img src="/cloud-1.webp" alt="" class="cloud-img" loading="eager" />
+      <div class="cloud-floor-shadow shadow-mid"></div>
+    </div>
+
+    <!-- Cloud 3: Upper Right High Cloud -->
+    <div class="cloud-actor cloud-top-right" data-depth="0.25">
+      <img src="/cloud-2.webp" alt="" class="cloud-img" loading="eager" />
+      <div class="cloud-floor-shadow shadow-mid"></div>
+    </div>
+
+    <!-- Cloud 4: Mid Left Floating Cloud -->
+    <div class="cloud-actor cloud-mid-left" data-depth="0.45">
+      <img src="/cloud-4.webp" alt="" class="cloud-img" loading="eager" />
+      <div class="cloud-floor-shadow shadow-large"></div>
+    </div>
+
+    <!-- Cloud 5: Mid Right Floating Cloud -->
+    <div class="cloud-actor cloud-mid-right" data-depth="0.5">
+      <img src="/cloud-2.webp" alt="" class="cloud-img" loading="eager" />
+      <div class="cloud-floor-shadow shadow-large"></div>
+    </div>
+
+    <!-- Cloud 6: Distant Far Left Cloud -->
+    <div class="cloud-actor cloud-distant-left" data-depth="0.12">
+      <img src="/cloud-1.webp" alt="" class="cloud-img" loading="lazy" />
+    </div>
+
+    <!-- Cloud 7: Distant Far Right Cloud -->
+    <div class="cloud-actor cloud-distant-right" data-depth="0.15">
+      <img src="/cloud-4.webp" alt="" class="cloud-img" loading="lazy" />
+    </div>
+
+    <!-- Cloud 8: Distant Center High Cloud -->
+    <div class="cloud-actor cloud-distant-center" data-depth="0.1">
+      <img src="/cloud-2.webp" alt="" class="cloud-img" loading="lazy" />
+    </div>
+
+    <!-- Cloud 9: Lower Left Ambient Cloud -->
+    <div class="cloud-actor cloud-lower-left" data-depth="0.6">
+      <img src="/cloud-3.webp" alt="" class="cloud-img" loading="lazy" />
+      <div class="cloud-floor-shadow shadow-large"></div>
+    </div>
+
+    <!-- Cloud 10: Lower Right Ambient Cloud -->
+    <div class="cloud-actor cloud-lower-right" data-depth="0.65">
+      <img src="/cloud-1.webp" alt="" class="cloud-img" loading="lazy" />
+      <div class="cloud-floor-shadow shadow-mid"></div>
+    </div>
+
+    <!-- Foreground Clouds (Pass in front of text with high parallax) -->
+    <div class="cloud-actor cloud-foreground-left" data-depth="0.9">
+      <img src="/cloud-2.webp" alt="" class="cloud-img fg-img" loading="lazy" />
+    </div>
+
+    <div class="cloud-actor cloud-foreground-right" data-depth="0.85">
+      <img src="/cloud-4.webp" alt="" class="cloud-img fg-img" loading="lazy" />
+    </div>
+
+    <!-- ===================================================
+         DENSE LIVING FOREST CANOPY - Real Trees at Bottom
+         Stems submerged below bottom edge, leaves rustling in breeze
+         =================================================== -->
+    <div class="tree-stage" id="treeStage">
+      
+      <!-- BACKGROUND LAYER: Continuous Horizon of Trees (Stems submerged) -->
+      <div class="tree-actor tree-bg-1" data-depth="0.15">
+        <img src="/tree-1.webp" alt="" class="tree-img rustle-1" loading="lazy" />
+      </div>
+      <div class="tree-actor tree-bg-2" data-depth="0.18">
+        <img src="/tree-2.webp" alt="" class="tree-img rustle-2" loading="lazy" />
+      </div>
+      <div class="tree-actor tree-bg-3" data-depth="0.14">
+        <img src="/tree-4.webp" alt="" class="tree-img rustle-3" loading="lazy" />
+      </div>
+      <div class="tree-actor tree-bg-4" data-depth="0.2">
+        <img src="/tree-3.webp" alt="" class="tree-img rustle-4" loading="lazy" />
+      </div>
+      <div class="tree-actor tree-bg-5" data-depth="0.16">
+        <img src="/tree-2.webp" alt="" class="tree-img rustle-5" loading="lazy" />
+      </div>
+      <div class="tree-actor tree-bg-6" data-depth="0.19">
+        <img src="/tree-4.webp" alt="" class="tree-img rustle-1" loading="lazy" />
+      </div>
+      <div class="tree-actor tree-bg-7" data-depth="0.15">
+        <img src="/tree-1.webp" alt="" class="tree-img rustle-2" loading="lazy" />
+      </div>
+      <div class="tree-actor tree-bg-8" data-depth="0.21">
+        <img src="/tree-3.webp" alt="" class="tree-img rustle-3" loading="lazy" />
+      </div>
+      <div class="tree-actor tree-bg-9" data-depth="0.17">
+        <img src="/tree-2.webp" alt="" class="tree-img rustle-4" loading="lazy" />
+      </div>
+      <div class="tree-actor tree-bg-10" data-depth="0.18">
+        <img src="/tree-4.webp" alt="" class="tree-img rustle-5" loading="lazy" />
+      </div>
+      <div class="tree-actor tree-bg-11" data-depth="0.15">
+        <img src="/tree-1.webp" alt="" class="tree-img rustle-1" loading="lazy" />
+      </div>
+
+      <!-- MIDGROUND LAYER: Full Canopy Trees -->
+      <div class="tree-actor tree-mid-1" data-depth="0.32">
+        <img src="/tree-1.webp" alt="" class="tree-img rustle-2" loading="lazy" />
+      </div>
+      <div class="tree-actor tree-mid-2" data-depth="0.28">
+        <img src="/tree-2.webp" alt="" class="tree-img rustle-3" loading="lazy" />
+      </div>
+      <div class="tree-actor tree-mid-3" data-depth="0.35">
+        <img src="/tree-4.webp" alt="" class="tree-img rustle-4" loading="lazy" />
+      </div>
+      <div class="tree-actor tree-mid-4" data-depth="0.3">
+        <img src="/tree-3.webp" alt="" class="tree-img rustle-5" loading="lazy" />
+      </div>
+      <div class="tree-actor tree-mid-5" data-depth="0.29">
+        <img src="/tree-2.webp" alt="" class="tree-img rustle-1" loading="lazy" />
+      </div>
+      <div class="tree-actor tree-mid-6" data-depth="0.34">
+        <img src="/tree-4.webp" alt="" class="tree-img rustle-2" loading="lazy" />
+      </div>
+      <div class="tree-actor tree-mid-7" data-depth="0.31">
+        <img src="/tree-1.webp" alt="" class="tree-img rustle-3" loading="lazy" />
+      </div>
+
+      <!-- FOREGROUND LAYER: Majestic Anchoring Canopies -->
+      <div class="tree-actor tree-fg-1" data-depth="0.45">
+        <img src="/tree-1.webp" alt="" class="tree-img rustle-4" loading="lazy" />
+      </div>
+      <div class="tree-actor tree-fg-2" data-depth="0.4">
+        <img src="/tree-3.webp" alt="" class="tree-img rustle-5" loading="lazy" />
+      </div>
+      <div class="tree-actor tree-fg-3" data-depth="0.48">
+        <img src="/tree-3.webp" alt="" class="tree-img rustle-1" loading="lazy" />
+      </div>
+      <div class="tree-actor tree-fg-4" data-depth="0.42">
+        <img src="/tree-4.webp" alt="" class="tree-img rustle-2" loading="lazy" />
+      </div>
+      <div class="tree-actor tree-fg-5" data-depth="0.46">
+        <img src="/tree-1.webp" alt="" class="tree-img rustle-3" loading="lazy" />
+      </div>
+
+      <!-- Soft canopy mist weaving through tree crowns -->
+      <div class="canopy-mist">
+        <img src="/cloud-4.webp" alt="" class="mist-cloud-1" />
+        <img src="/cloud-2.webp" alt="" class="mist-cloud-2" />
+        <img src="/cloud-4.webp" alt="" class="mist-cloud-3" />
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Soft Atmospheric Light Diffusion -->
+  <div class="studio-ambient-light"></div>
+</div>
+
+<script>
+  function initCloudStudio() {
+    const stage = document.getElementById('cloudStage');
+    const treeStage = document.getElementById('treeStage');
+    if (!stage) return;
+
+    const clouds = stage.querySelectorAll<HTMLElement>('.cloud-actor');
+
+    // Setup independent randomized automatic wandering motion for each cloud
+    interface CloudMotion {
+      el: HTMLElement;
+      depth: number;
+      speedX1: number;
+      speedX2: number;
+      ampX1: number;
+      ampX2: number;
+      phaseX1: number;
+      phaseX2: number;
+      speedY1: number;
+      speedY2: number;
+      ampY1: number;
+      ampY2: number;
+      phaseY1: number;
+      phaseY2: number;
+    }
+
+    const cloudMotions: CloudMotion[] = [];
+    clouds.forEach((cloud) => {
+      const depth = parseFloat(cloud.dataset.depth || '0.3');
+      cloudMotions.push({
+        el: cloud,
+        depth,
+        speedX1: 0.12 + Math.random() * 0.18, // Slow, peaceful wander
+        speedX2: 0.2 + Math.random() * 0.22,
+        ampX1: 30 + Math.random() * 45,       // 30px to 75px organic drift
+        ampX2: 15 + Math.random() * 30,
+        phaseX1: Math.random() * Math.PI * 2,
+        phaseX2: Math.random() * Math.PI * 2,
+        speedY1: 0.14 + Math.random() * 0.18,
+        speedY2: 0.22 + Math.random() * 0.22,
+        ampY1: 18 + Math.random() * 25,       // 18px to 43px vertical drift
+        ampY2: 10 + Math.random() * 20,
+        phaseY1: Math.random() * Math.PI * 2,
+        phaseY2: Math.random() * Math.PI * 2,
+      });
+    });
+
+    let targetScrollY = 0;
+    let currentScrollY = 0;
+
+    window.addEventListener('scroll', () => {
+      targetScrollY = window.scrollY;
+    }, { passive: true });
+
+    let isVisible = true;
+    document.addEventListener('visibilitychange', () => {
+      isVisible = !document.hidden;
+      if (isVisible) requestAnimationFrame(loop);
+    });
+
+    function loop(time: number) {
+      if (!isVisible) return;
+
+      const t = time * 0.001; // elapsed seconds
+
+      currentScrollY += (targetScrollY - currentScrollY) * 0.08;
+
+      // Scroll progress from 0 to 1
+      const maxScroll = Math.max(document.body.scrollHeight - window.innerHeight, 1);
+      const scrollProgress = Math.min(Math.max(currentScrollY / maxScroll, 0), 1);
+
+      // Automatic random cloud wandering + vertical scroll parallax (NO mouse tracking)
+      cloudMotions.forEach((c) => {
+        const driftX = Math.sin(t * c.speedX1 + c.phaseX1) * c.ampX1 + Math.cos(t * c.speedX2 + c.phaseX2) * c.ampX2;
+        const driftY = Math.cos(t * c.speedY1 + c.phaseY1) * c.ampY1 + Math.sin(t * c.speedY2 + c.phaseY2) * c.ampY2;
+        const scrollOffset = -currentScrollY * c.depth * 0.85;
+
+        c.el.style.setProperty('--drift-x', `${driftX.toFixed(2)}px`);
+        c.el.style.setProperty('--drift-y', `${driftY.toFixed(2)}px`);
+        c.el.style.setProperty('--scroll-shift-y', `${scrollOffset.toFixed(2)}px`);
+      });
+
+      // Trees rise smoothly and naturally from below the screen with scroll
+      // Start rising at 10% scroll, fully elevated by 65% scroll
+      const treeRiseProgress = Math.min(Math.max(scrollProgress / 0.65, 0), 1);
+      const treeBaseElevation = (1 - treeRiseProgress) * 440;
+      const treeAlpha = Math.min(treeRiseProgress * 1.6, 1);
+
+      if (treeStage) {
+        treeStage.style.setProperty('--tree-rise-y', `${treeBaseElevation.toFixed(2)}px`);
+        treeStage.style.setProperty('--tree-opacity', `${treeAlpha.toFixed(3)}`);
+      }
+
+      requestAnimationFrame(loop);
+    }
+
+    requestAnimationFrame(loop);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCloudStudio);
+  } else {
+    initCloudStudio();
+  }
+</script>
+
+<style>
+  .studio-viewport {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+    perspective: 1400px;
+    background-color: #f7f9fa;
+  }
+
+  /* Pure White Infinity Studio Room matching reference */
+  .studio-floor-wall {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      ellipse 95% 80% at 50% 45%,
+      #ffffff 0%,
+      #fafbfc 40%,
+      #f2f5f8 75%,
+      #e8edf2 100%
+    );
+  }
+
+  /* 3D Stage for Clouds & Trees - Stationary, no mouse tilt */
+  .cloud-stage {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+  }
+
+  /* Base Cloud Actor - Automatic wandering + scroll parallax (NO mouse shift) */
+  .cloud-actor {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    will-change: transform;
+    pointer-events: none;
+    transform: translate3d(
+      calc(var(--base-x, 0px) + var(--drift-x, 0px)),
+      calc(var(--base-y, 0px) + var(--scroll-shift-y, 0px) + var(--drift-y, 0px)),
+      var(--base-z, 0px)
+    );
+  }
+
+  .cloud-img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.05));
+    animation: cloudBob 8s ease-in-out infinite alternate;
+  }
+
+  /* Floor Shadow underneath clouds */
+  .cloud-floor-shadow {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background: radial-gradient(
+      ellipse at center,
+      rgba(0, 0, 0, 0.14) 0%,
+      rgba(0, 0, 0, 0.06) 45%,
+      transparent 70%
+    );
+    border-radius: 50%;
+    filter: blur(22px);
+    pointer-events: none;
+    animation: shadowPulse 8s ease-in-out infinite alternate;
+  }
+
+  .shadow-large {
+    bottom: -70px;
+    width: 75%;
+    height: 50px;
+  }
+
+  .shadow-mid {
+    bottom: -50px;
+    width: 65%;
+    height: 38px;
+  }
+
+  /* Cloud Placements matching reference */
+  .cloud-center {
+    --base-x: 0px;
+    --base-y: 0px;
+    --base-z: 100px;
+    top: 20%;
+    left: 50%;
+    width: clamp(380px, 48vw, 680px);
+    margin-left: calc(clamp(380px, 48vw, 680px) / -2);
+    z-index: 5;
+  }
+  .cloud-center .cloud-img {
+    animation-duration: 9s;
+  }
+
+  .cloud-top-left {
+    --base-x: 0px;
+    --base-y: 0px;
+    --base-z: -50px;
+    top: 5%;
+    left: 10%;
+    width: clamp(260px, 30vw, 420px);
+    z-index: 3;
+  }
+  .cloud-top-left .cloud-img {
+    animation-duration: 11s;
+    animation-delay: -2s;
+  }
+
+  .cloud-top-right {
+    --base-x: 0px;
+    --base-y: 0px;
+    --base-z: -30px;
+    top: 6%;
+    right: 8%;
+    width: clamp(280px, 32vw, 450px);
+    z-index: 3;
+  }
+  .cloud-top-right .cloud-img {
+    animation-duration: 10s;
+    animation-delay: -4s;
+  }
+
+  .cloud-mid-left {
+    --base-x: 0px;
+    --base-y: 0px;
+    --base-z: 60px;
+    top: 36%;
+    left: 2%;
+    width: clamp(300px, 34vw, 480px);
+    z-index: 4;
+  }
+  .cloud-mid-left .cloud-img {
+    animation-duration: 8.5s;
+    animation-delay: -1.5s;
+  }
+
+  .cloud-mid-right {
+    --base-x: 0px;
+    --base-y: 0px;
+    --base-z: 70px;
+    top: 38%;
+    right: 2%;
+    width: clamp(320px, 36vw, 500px);
+    z-index: 4;
+  }
+  .cloud-mid-right .cloud-img {
+    animation-duration: 9.5s;
+    animation-delay: -5s;
+  }
+
+  .cloud-distant-left {
+    --base-x: 0px;
+    --base-y: 0px;
+    --base-z: -200px;
+    top: 24%;
+    left: 18%;
+    width: clamp(140px, 16vw, 220px);
+    opacity: 0.75;
+    z-index: 2;
+  }
+  .cloud-distant-left .cloud-img {
+    animation-duration: 13s;
+    animation-delay: -3s;
+  }
+
+  .cloud-distant-right {
+    --base-x: 0px;
+    --base-y: 0px;
+    --base-z: -180px;
+    top: 25%;
+    right: 20%;
+    width: clamp(150px, 17vw, 240px);
+    opacity: 0.75;
+    z-index: 2;
+  }
+  .cloud-distant-right .cloud-img {
+    animation-duration: 12s;
+    animation-delay: -7s;
+  }
+
+  .cloud-distant-center {
+    --base-x: 0px;
+    --base-y: 0px;
+    --base-z: -250px;
+    top: 10%;
+    left: 50%;
+    width: clamp(120px, 14vw, 190px);
+    margin-left: calc(clamp(120px, 14vw, 190px) / -2);
+    opacity: 0.7;
+    z-index: 1;
+  }
+
+  .cloud-lower-left {
+    --base-x: 0px;
+    --base-y: 0px;
+    --base-z: 120px;
+    top: 60%;
+    left: 8%;
+    width: clamp(320px, 38vw, 540px);
+    z-index: 6;
+  }
+  .cloud-lower-left .cloud-img {
+    animation-duration: 8s;
+    animation-delay: -3.5s;
+  }
+
+  .cloud-lower-right {
+    --base-x: 0px;
+    --base-y: 0px;
+    --base-z: 130px;
+    top: 62%;
+    right: 8%;
+    width: clamp(340px, 40vw, 560px);
+    z-index: 6;
+  }
+
+  .cloud-foreground-left {
+    --base-x: 0px;
+    --base-y: 0px;
+    --base-z: 220px;
+    top: 48%;
+    left: -8%;
+    width: clamp(450px, 50vw, 750px);
+    z-index: 25;
+    opacity: 0.45;
+  }
+
+  .cloud-foreground-right {
+    --base-x: 0px;
+    --base-y: 0px;
+    --base-z: 240px;
+    top: 80%;
+    right: -10%;
+    width: clamp(480px, 52vw, 780px);
+    z-index: 25;
+    opacity: 0.4;
+  }
+
+  /* ===================================================
+     DENSE LIVING EARTH FOREST - Populated Bottom Canopy
+     Stems submerged below screen, leaves rustling in the wind (NO mouse shift)
+     =================================================== */
+  .tree-stage {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 76vh;
+    pointer-events: none;
+    z-index: 8;
+    transform: translateY(var(--tree-rise-y, 440px));
+    opacity: var(--tree-opacity, 0);
+    transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+  }
+
+  /* Tree Actor Container: Trunk Sway Animation */
+  .tree-actor {
+    position: absolute;
+    /* Submerge the stem cutoff well below the bottom of the viewport */
+    bottom: -115px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    will-change: transform;
+    transform-origin: 50% 95%;
+    transform: translate3d(0, 0, var(--tree-z, 0px));
+    animation: treeTrunkSway 8.5s ease-in-out infinite alternate;
+  }
+
+  /* Tree Image: High-Frequency Leaf Rustle & Sunlit Shimmer */
+  .tree-img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 18px 28px rgba(0, 0, 0, 0.06));
+    will-change: transform, filter;
+    transform-origin: 50% 65%;
+  }
+
+  /* Organic Leaf Rustle Variations */
+  .rustle-1 { animation: leafRustle 2.8s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite alternate; animation-delay: -0.4s; }
+  .rustle-2 { animation: leafRustle 3.4s cubic-bezier(0.42, 0, 0.58, 1) infinite alternate; animation-delay: -1.2s; }
+  .rustle-3 { animation: leafRustle 2.5s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite alternate; animation-delay: -2.1s; }
+  .rustle-4 { animation: leafRustle 3.8s cubic-bezier(0.37, 0, 0.63, 1) infinite alternate; animation-delay: -0.8s; }
+  .rustle-5 { animation: leafRustle 3.1s cubic-bezier(0.42, 0, 0.58, 1) infinite alternate; animation-delay: -1.7s; }
+
+  /* ----------------------------------------------------
+     BACKGROUND DENSE HORIZON (Continuous Green Line)
+     Stems positioned deep below edge (-90px to -70px)
+     ---------------------------------------------------- */
+  .tree-bg-1  { left: -4%;  bottom: -75px; width: clamp(210px, 21vw, 320px); --tree-z: -140px; opacity: 0.72; z-index: 1; animation-duration: 9.5s; animation-delay: -1s; }
+  .tree-bg-2  { left: 6%;   bottom: -80px; width: clamp(190px, 19vw, 290px); --tree-z: -160px; opacity: 0.68; z-index: 1; animation-duration: 11s; animation-delay: -3.2s; }
+  .tree-bg-3  { left: 16%;  bottom: -70px; width: clamp(220px, 22vw, 330px); --tree-z: -130px; opacity: 0.75; z-index: 1; animation-duration: 9.2s; animation-delay: -2.4s; }
+  .tree-bg-4  { left: 26%;  bottom: -85px; width: clamp(230px, 23vw, 340px); --tree-z: -150px; opacity: 0.7; z-index: 1; animation-duration: 11.5s; animation-delay: -4s; }
+  .tree-bg-5  { left: 36%;  bottom: -78px; width: clamp(200px, 20vw, 300px); --tree-z: -170px; opacity: 0.66; z-index: 1; animation-duration: 10.2s; animation-delay: -1.5s; }
+  .tree-bg-6  { left: 46%;  bottom: -72px; width: clamp(240px, 24vw, 350px); --tree-z: -140px; opacity: 0.72; z-index: 1; animation-duration: 10.8s; animation-delay: -3.6s; }
+  .tree-bg-7  { left: 56%;  bottom: -82px; width: clamp(210px, 21vw, 320px); --tree-z: -160px; opacity: 0.68; z-index: 1; animation-duration: 9.4s; animation-delay: -2.7s; }
+  .tree-bg-8  { left: 66%;  bottom: -75px; width: clamp(230px, 23vw, 340px); --tree-z: -135px; opacity: 0.74; z-index: 1; animation-duration: 11.2s; animation-delay: -4.3s; }
+  .tree-bg-9  { left: 76%;  bottom: -85px; width: clamp(200px, 20vw, 300px); --tree-z: -165px; opacity: 0.67; z-index: 1; animation-duration: 10.5s; animation-delay: -1.9s; }
+  .tree-bg-10 { left: 86%;  bottom: -70px; width: clamp(220px, 22vw, 330px); --tree-z: -140px; opacity: 0.72; z-index: 1; animation-duration: 11.8s; animation-delay: -3.1s; }
+  .tree-bg-11 { left: 96%;  bottom: -76px; width: clamp(210px, 21vw, 320px); --tree-z: -150px; opacity: 0.7; z-index: 1; animation-duration: 10.1s; animation-delay: -2.5s; }
+
+  /* ----------------------------------------------------
+     MIDGROUND LAYER (Dense Body)
+     Stems submerged deeply (-115px to -95px)
+     ---------------------------------------------------- */
+  .tree-mid-1 { left: 1%;   bottom: -110px; width: clamp(310px, 32vw, 480px); --tree-z: 10px; z-index: 3; animation-duration: 9.4s; animation-delay: -2.2s; }
+  .tree-mid-2 { left: 15%;  bottom: -115px; width: clamp(260px, 27vw, 400px); --tree-z: -10px; z-index: 2; animation-duration: 8.6s; animation-delay: -4.1s; }
+  .tree-mid-3 { left: 29%;  bottom: -100px; width: clamp(290px, 30vw, 440px); --tree-z: 20px; z-index: 3; animation-duration: 9.9s; animation-delay: -1.3s; }
+  .tree-mid-4 { left: 43%;  bottom: -112px; width: clamp(280px, 29vw, 430px); --tree-z: 0px; z-index: 2; animation-duration: 10.4s; animation-delay: -3.7s; }
+  .tree-mid-5 { left: 57%;  bottom: -118px; width: clamp(270px, 28vw, 410px); --tree-z: -5px; z-index: 2; animation-duration: 8.8s; animation-delay: -2.8s; }
+  .tree-mid-6 { left: 71%;  bottom: -102px; width: clamp(300px, 31vw, 450px); --tree-z: 15px; z-index: 3; animation-duration: 9.7s; animation-delay: -4.4s; }
+  .tree-mid-7 { left: 85%;  bottom: -114px; width: clamp(290px, 30vw, 440px); --tree-z: 10px; z-index: 3; animation-duration: 9.2s; animation-delay: -1.7s; }
+
+  /* ----------------------------------------------------
+     FOREGROUND LAYER (Grand Tall Anchor Canopies)
+     Stems deeply submerged (-145px to -130px)
+     ---------------------------------------------------- */
+  .tree-fg-1 { left: -3%;  bottom: -140px; width: clamp(350px, 37vw, 560px); --tree-z: 70px; z-index: 5; animation-duration: 9.8s; animation-delay: -0.9s; }
+  .tree-fg-2 { left: 21%;  bottom: -130px; width: clamp(330px, 35vw, 520px); --tree-z: 60px; z-index: 4; animation-duration: 8.9s; animation-delay: -3.3s; }
+  .tree-fg-3 { left: 50%;  bottom: -145px; transform: translateX(-50%) translate3d(0, 0, 90px); width: clamp(380px, 40vw, 600px); z-index: 5; animation-duration: 10.9s; animation-delay: -2.1s; }
+  .tree-fg-4 { left: 69%;  bottom: -132px; width: clamp(320px, 34vw, 510px); --tree-z: 65px; z-index: 4; animation-duration: 9.5s; animation-delay: -4.6s; }
+  .tree-fg-5 { left: 91%;  bottom: -140px; width: clamp(350px, 37vw, 560px); --tree-z: 75px; z-index: 5; animation-duration: 10.3s; animation-delay: -1.8s; }
+
+  /* Canopy Mist */
+  .canopy-mist {
+    position: absolute;
+    bottom: 120px;
+    left: 0;
+    width: 100%;
+    pointer-events: none;
+    z-index: 6;
+    display: flex;
+    justify-content: space-between;
+    opacity: 0.55;
+  }
+
+  .mist-cloud-1 {
+    width: clamp(260px, 30vw, 440px);
+    margin-left: 2%;
+    filter: blur(8px);
+    animation: cloudBob 10s ease-in-out infinite alternate;
+  }
+
+  .mist-cloud-2 {
+    width: clamp(280px, 32vw, 460px);
+    filter: blur(10px);
+    animation: cloudBob 12s ease-in-out infinite alternate-reverse;
+  }
+
+  .mist-cloud-3 {
+    width: clamp(250px, 28vw, 420px);
+    margin-right: 2%;
+    filter: blur(9px);
+    animation: cloudBob 11s ease-in-out infinite alternate;
+  }
+
+  /* ----------------------------------------------------
+     KEYFRAMES: Living Tree Motion (Stationary Rooted Base)
+     ---------------------------------------------------- */
+  
+  /* 1. Trunk Macro Sway (gentle wind breeze) */
+  @keyframes treeTrunkSway {
+    0% {
+      transform: translate3d(0, 0, var(--tree-z, 0px)) rotate(0deg) skewX(0deg);
+    }
+    35% {
+      transform: translate3d(0, 0, var(--tree-z, 0px)) rotate(0.9deg) skewX(0.35deg);
+    }
+    70% {
+      transform: translate3d(0, 0, var(--tree-z, 0px)) rotate(-0.75deg) skewX(-0.3deg);
+    }
+    100% {
+      transform: translate3d(0, 0, var(--tree-z, 0px)) rotate(0.25deg) skewX(0.1deg);
+    }
+  }
+
+  /* 2. Foliage & Leaf Rustle (high-frequency organic vibration + sunlight shimmer) */
+  @keyframes leafRustle {
+    0% {
+      transform: scale(1) skewX(0deg) skewY(0deg);
+      filter: brightness(1) contrast(1);
+    }
+    20% {
+      transform: scale(1.014, 0.99) skewX(0.65deg) skewY(-0.35deg);
+      filter: brightness(1.035) contrast(1.015);
+    }
+    45% {
+      transform: scale(0.992, 1.012) skewX(-0.55deg) skewY(0.45deg);
+      filter: brightness(0.975) contrast(0.99);
+    }
+    75% {
+      transform: scale(1.009, 0.994) skewX(0.5deg) skewY(-0.25deg);
+      filter: brightness(1.025) contrast(1.01);
+    }
+    100% {
+      transform: scale(1) skewX(0deg) skewY(0deg);
+      filter: brightness(1) contrast(1);
+    }
+  }
+
+  @keyframes cloudBob {
+    0% {
+      transform: translateY(0px) scale(1);
+    }
+    50% {
+      transform: translateY(-16px) scale(1.02);
+    }
+    100% {
+      transform: translateY(4px) scale(0.99);
+    }
+  }
+
+  @keyframes shadowPulse {
+    0% {
+      transform: translateX(-50%) scale(1);
+      opacity: 0.85;
+    }
+    50% {
+      transform: translateX(-50%) scale(0.92);
+      opacity: 0.6;
+    }
+    100% {
+      transform: translateX(-50%) scale(1.04);
+      opacity: 0.9;
+    }
+  }
+
+  .studio-ambient-light {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      circle at 50% 20%,
+      rgba(255, 255, 255, 0.7) 0%,
+      transparent 75%
+    );
+    pointer-events: none;
+    z-index: 10;
+  }
+
+  @media (max-width: 768px) {
+    .cloud-center {
+      top: 28%;
+      width: 90vw;
+      margin-left: -45vw;
+    }
+    .cloud-top-left,
+    .cloud-top-right {
+      top: 2%;
+      width: 55vw;
+    }
+    .cloud-mid-left,
+    .cloud-mid-right {
+      display: none;
+    }
+
+    .tree-stage {
+      height: 52vh;
+    }
+    .tree-fg-1 { left: -15%; bottom: -110px; width: 65vw; }
+    .tree-fg-5 { left: 55%; bottom: -110px; width: 65vw; }
+    .tree-fg-2, .tree-fg-4 { display: none; }
+    .tree-mid-2, .tree-mid-4, .tree-mid-6 { display: none; }
+    .tree-bg-2, .tree-bg-4, .tree-bg-6, .tree-bg-8, .tree-bg-10 { display: none; }
+  }
+</style>

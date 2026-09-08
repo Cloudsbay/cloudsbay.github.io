@@ -34,50 +34,51 @@ const essays = [
   description="Dispatches, essays, and reflections from Cloudsbay on curiosity, scalable systems, and restoring the living Earth."
 >
   <div class="writing-room">
-    <header class="writing-hero">
+    <header class="writing-hero glass-card">
       <span class="room-label">Writing & Research</span>
       <h1 class="writing-headline">
         Thoughts on curiosity, scalable engineering, and the living Earth.
       </h1>
     </header>
 
-    <div class="essays-list">
-      {essays.map((essay, idx) => (
-        <article class="essay-item">
-          <div class="essay-meta">
-            <span class="essay-num">0{idx + 1}</span>
-            <span class="essay-topic">{essay.topic}</span>
-            <span class="essay-date">{essay.date}</span>
-          </div>
+    <div class="essays-wrapper glass-card">
+      <div class="essays-list">
+        {essays.map((essay, idx) => (
+          <article class="essay-item">
+            <div class="essay-meta">
+              <span class="essay-num">0{idx + 1}</span>
+              <span class="essay-topic">{essay.topic}</span>
+              <span class="essay-date">{essay.date}</span>
+            </div>
 
-          <div class="essay-content">
-            <h2 class="essay-title">
-              <a href="#read" class="essay-link">{essay.title}</a>
-            </h2>
-            <p class="essay-excerpt">{essay.excerpt}</p>
-          </div>
-        </article>
-      ))}
-    </div>
-
-    <!-- Clean, simple subscribe line - pure text, no cards -->
-    <div class="newsletter-row">
-      <div class="newsletter-text">
-        <h3>Stay connected</h3>
-        <p>Occasional letters on our tree planting milestones and curiosity-driven research.</p>
+            <div class="essay-content">
+              <h2 class="essay-title">
+                <a href="#read" class="essay-link">{essay.title}</a>
+              </h2>
+              <p class="essay-excerpt">{essay.excerpt}</p>
+            </div>
+          </article>
+        ))}
       </div>
 
-      <form class="simple-subscribe" onsubmit="event.preventDefault(); alert('Thank you.');">
-        <input type="email" placeholder="Email address" required class="sub-input" />
-        <button type="submit" class="sub-btn">Subscribe</button>
-      </form>
+      <div class="newsletter-row">
+        <div class="newsletter-text">
+          <h3>Stay connected</h3>
+          <p>Occasional letters on our tree planting milestones and curiosity-driven research.</p>
+        </div>
+
+        <form class="simple-subscribe" onsubmit="event.preventDefault(); alert('Thank you.');">
+          <input type="email" placeholder="Email address" required class="sub-input" />
+          <button type="submit" class="sub-btn">Subscribe</button>
+        </form>
+      </div>
     </div>
   </div>
 </Layout>
 
 <style>
   .writing-room {
-    padding: 6rem 3rem 10rem;
+    padding: 3rem 1.5rem 8rem;
     max-width: 1200px;
     margin: 0 auto;
     width: 100%;
@@ -85,16 +86,16 @@ const essays = [
   }
 
   .writing-hero {
-    max-width: 960px;
-    margin-bottom: 8rem;
+    padding: 5rem 4.5rem;
+    margin-bottom: 3.5rem;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.75rem;
   }
 
   .room-label {
     font-family: var(--font-sans);
-    font-size: 0.875rem;
+    font-size: 0.85rem;
     font-weight: 500;
     color: var(--color-ink-subtle);
     letter-spacing: 0.08em;
@@ -103,26 +104,36 @@ const essays = [
 
   .writing-headline {
     font-family: var(--font-sans);
-    font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+    font-size: clamp(2.25rem, 5vw, 4rem);
     font-weight: 400;
-    line-height: 1.12;
+    line-height: 1.15;
     letter-spacing: -0.035em;
     color: var(--color-ink);
+  }
+
+  .essays-wrapper {
+    padding: 4.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
   }
 
   .essays-list {
     display: flex;
     flex-direction: column;
-    border-top: 1px solid rgba(0, 0, 0, 0.08);
   }
 
   .essay-item {
     display: grid;
-    grid-template-columns: 260px 1fr;
+    grid-template-columns: 240px 1fr;
     gap: 4rem;
-    padding: 4.5rem 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    padding: 3.5rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
     align-items: start;
+  }
+
+  .essay-item:first-child {
+    padding-top: 0;
   }
 
   .essay-meta {
@@ -148,7 +159,7 @@ const essays = [
 
   .essay-date {
     font-family: var(--font-text);
-    font-size: 0.875rem;
+    font-size: 0.85rem;
     color: var(--color-ink-subtle);
   }
 
@@ -156,12 +167,12 @@ const essays = [
     max-width: 760px;
     display: flex;
     flex-direction: column;
-    gap: 1.25rem;
+    gap: 1rem;
   }
 
   .essay-title {
     font-family: var(--font-sans);
-    font-size: clamp(1.6rem, 2.5vw, 2.25rem);
+    font-size: clamp(1.5rem, 2.5vw, 2.1rem);
     font-weight: 500;
     line-height: 1.25;
     letter-spacing: -0.025em;
@@ -180,7 +191,7 @@ const essays = [
 
   .essay-excerpt {
     font-family: var(--font-text);
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     line-height: 1.8;
     color: var(--color-ink-muted);
     margin: 0;
@@ -192,14 +203,12 @@ const essays = [
     justify-content: space-between;
     align-items: center;
     gap: 4rem;
-    margin-top: 6rem;
-    padding-top: 4rem;
-    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    padding-top: 2rem;
   }
 
   .newsletter-text h3 {
     font-family: var(--font-sans);
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     font-weight: 500;
     color: var(--color-ink);
     letter-spacing: -0.02em;
@@ -208,7 +217,7 @@ const essays = [
 
   .newsletter-text p {
     font-family: var(--font-text);
-    font-size: 1.05rem;
+    font-size: 1rem;
     color: var(--color-ink-muted);
   }
 
@@ -255,17 +264,19 @@ const essays = [
 
   @media (max-width: 860px) {
     .writing-room {
-      padding: 4rem 1.5rem 6rem;
+      padding: 2rem 1rem 6rem;
     }
 
-    .writing-hero {
-      margin-bottom: 4rem;
+    .writing-hero,
+    .essays-wrapper {
+      padding: 3rem 2rem;
+      border-radius: 24px;
     }
 
     .essay-item {
       grid-template-columns: 1fr;
-      gap: 1.5rem;
-      padding: 3rem 0;
+      gap: 1.25rem;
+      padding: 2.5rem 0;
     }
 
     .newsletter-row {
